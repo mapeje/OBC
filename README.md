@@ -14,3 +14,9 @@ Adapters:
  DHT11 (https://www.kjell.com/se/produkter/el-verktyg/arduino/moduler/temperatur-och-luftfuktighetssensor-for-arduino-p87086)
  DS18B20 (https://www.kjell.com/se/produkter/el-verktyg/arduino/moduler/temperatursensor-med-kabel-for-arduino-p87081)
  
+ 
+ Arduino
+ Add https://dl.espressif.com/dl/package_esp32_index.json to board manager
+
+ESPhome
+TBD
