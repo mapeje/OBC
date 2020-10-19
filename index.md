@@ -1,22 +1,21 @@
-## Welcome to GitHub Pages
+## Welcome to OnBoardComputer
 
-You can use the [editor on GitHub](https://github.com/mapeje/OBC/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Here I will share my journey and documentation on how to build a DIY computer for my sailboat.
 
 ### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+I am a NOOB, but thanks to many great contributers online, I hope to complete this great, fun and educational project.
 
 ```markdown
-Syntax highlighted code block
+Major building blocks
 
-# Header 1
-## Header 2
-### Header 3
+# Hardware
+## OBC
+-Raspberry Pi4 2GB
+### Accessories
 
-- Bulleted
-- List
+- Chargers
+- Cables
 
 1. Numbered
 2. List
