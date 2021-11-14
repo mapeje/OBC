@@ -1,0 +1,179 @@
+[
+    {
+        "id": "3ff62ed3.62d092",
+        "type": "tab",
+        "label": "Ruuvi",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3f2c0bc5.897f84",
+        "type": "signalk-subscribe",
+        "z": "3ff62ed3.62d092",
+        "name": "MainCabin temperature",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "environment.inside.mainCabin.temperature",
+        "source": "",
+        "period": 1000,
+        "x": 260,
+        "y": 160,
+        "wires": [
+            [
+                "54695fa3.750ba"
+            ]
+        ]
+    },
+    {
+        "id": "1c5d59ba.b87ac6",
+        "type": "debug",
+        "z": "3ff62ed3.62d092",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7f592f69.b008b",
+        "type": "signalk-subscribe",
+        "z": "3ff62ed3.62d092",
+        "name": "MainCabin humidity",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "environment.inside.mainCabin.relativeHumidity",
+        "source": "",
+        "period": 1000,
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "1c5d59ba.b87ac6",
+                "a15fa49c.0c0cc8"
+            ]
+        ]
+    },
+    {
+        "id": "79ad063.58ba5f8",
+        "type": "ui_gauge",
+        "z": "3ff62ed3.62d092",
+        "name": "",
+        "group": "779d5331.be0f8c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 710,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "37e1f985.e9d816",
+        "type": "ui_gauge",
+        "z": "3ff62ed3.62d092",
+        "name": "",
+        "group": "779d5331.be0f8c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 700,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "54695fa3.750ba",
+        "type": "unit-converter",
+        "z": "3ff62ed3.62d092",
+        "category": "temperature",
+        "inputUnit": "K",
+        "outputUnit": "C",
+        "inputField": "payload",
+        "outputField": "payload",
+        "inputFieldType": "msg",
+        "outputFieldType": "msg",
+        "roundOutputField": true,
+        "outputFieldDecimals": "1",
+        "name": "",
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "1c5d59ba.b87ac6",
+                "79ad063.58ba5f8"
+            ]
+        ]
+    },
+    {
+        "id": "a15fa49c.0c0cc8",
+        "type": "function",
+        "z": "3ff62ed3.62d092",
+        "name": "",
+        "func": "msg.payload=msg.payload*100\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "37e1f985.e9d816"
+            ]
+        ]
+    },
+    {
+        "id": "779d5331.be0f8c",
+        "type": "ui_group",
+        "name": "Cabin environment",
+        "tab": "2aa095ca.dd28ba",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2aa095ca.dd28ba",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
