@@ -1,0 +1,129 @@
+[
+    {
+        "id": "cf362320.8fdd4",
+        "type": "tab",
+        "label": "Flic",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "728cd0d1.9501c",
+        "type": "flic",
+        "z": "cf362320.8fdd4",
+        "name": "Cabin Lights - WHITE",
+        "button": "7e37f10b.ce4bf",
+        "eventButtonDown": false,
+        "eventButtonUp": false,
+        "eventButtonClick": false,
+        "eventButtonSingleClick": true,
+        "eventButtonDoubleClick": false,
+        "eventButtonHold": false,
+        "outputMode": "individual",
+        "outputs": 1,
+        "topic": "flic",
+        "debug": false,
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "a7faf6e8.94b858"
+            ]
+        ]
+    },
+    {
+        "id": "a5c14f66.c2d72",
+        "type": "flic",
+        "z": "cf362320.8fdd4",
+        "name": "Cabin Lights - RED",
+        "button": "7e37f10b.ce4bf",
+        "eventButtonDown": false,
+        "eventButtonUp": false,
+        "eventButtonClick": false,
+        "eventButtonSingleClick": false,
+        "eventButtonDoubleClick": true,
+        "eventButtonHold": false,
+        "outputMode": "individual",
+        "outputs": 1,
+        "topic": "flic",
+        "debug": false,
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "40511449.27289c"
+            ]
+        ]
+    },
+    {
+        "id": "e41331c9.43322",
+        "type": "shelly-rgbw2",
+        "z": "cf362320.8fdd4",
+        "hostname": "10.10.10.13",
+        "description": "RGBW (Bulb)",
+        "ledStat": true,
+        "pollinginterval": "5000",
+        "mode": "color",
+        "x": 580,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "40511449.27289c",
+        "type": "function",
+        "z": "cf362320.8fdd4",
+        "name": "Red",
+        "func": "msg.payload =\n{\n    red : 255,\n    green : 0,\n    blue : 0,\n    white : 0,\n    gain : 50,\n    effect : 0,\n    transition : 0, // optional 0..5000ms\n    turn : \"toggle\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "e41331c9.43322"
+            ]
+        ]
+    },
+    {
+        "id": "a7faf6e8.94b858",
+        "type": "function",
+        "z": "cf362320.8fdd4",
+        "name": "White",
+        "func": "msg.payload =\n{\n    red : 0,\n    green : 0,\n    blue : 0,\n    white : 255,\n    gain : 50,\n    effect : 0,\n    transition : 0, // optional 0..5000ms\n    turn : \"toggle\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 80,
+        "wires": [
+            [
+                "e41331c9.43322"
+            ]
+        ]
+    },
+    {
+        "id": "18d13822.17bd18",
+        "type": "comment",
+        "z": "cf362320.8fdd4",
+        "name": "Start Daemon",
+        "info": "sudo /home/pi/fliclib-linux-hci/bin/armv6l/./flicd -f /home/pi/fliclib-linux-hci/bin/armv6l/flic.sqlite3",
+        "x": 90,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "7e37f10b.ce4bf",
+        "type": "Flic Button",
+        "address": "80:e4:da:78:63:14",
+        "name": "Button#2",
+        "autodisconnecttime": "15",
+        "host": "127.0.0.1",
+        "port": "5551"
+    }
+]
