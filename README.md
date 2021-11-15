@@ -1,16 +1,13 @@
-## OBC
+## OBC ##
 OnBoardComputer @ SY Blixten
 
-#COMPUTER
-1:
-Raspberry Pi 4 Model B/2GB (https://www.electrokit.com/produkt/raspberry-pi-4-model-b-2gb/) 
-Raspberry Pi4 enclosure (https://www.electrokit.com/produkt/raspberry-pi-4-case-rw/)
-2: 
-Raspberry Pi Zero 2 W (less power consumption than RPI4)
+# COMPUTER #
+* Raspberry Pi 4 Model B/2GB (https://www.electrokit.com/produkt/raspberry-pi-4-model-b-2gb/) 
+* Raspberry Pi Zero 2 W (less power consumption than RPI4)
 
-#Serial adapters:
-(https://www.electrokit.com/produkt/usb-rs232-omvandlare-for-pc/)
-FT232RL (https://www.kjell.com/se/produkter/el-verktyg/arduino/moduler/luxorparts-usb-till-seriell-adapter-for-arduino-p88064)
+# Serial adapters #
+* USB-rs232(https://www.electrokit.com/produkt/usb-rs232-omvandlare-for-pc/)
+* FT232RL (https://www.kjell.com/se/produkter/el-verktyg/arduino/moduler/luxorparts-usb-till-seriell-adapter-for-arduino-p88064)
  
 
 #SENSORS and SWITCHES
