@@ -13,7 +13,7 @@
 * RuuviTag
 * Shellys (Shelly1, Shelly RGBW2, Shelly UNI - 12V ; Shelly 1PM 230V for battery charger power on/off and power monitoring)
 * Flic BLE buttons
-*DIY Sensors:
+* DIY Sensors:
 - DHT11 (https://www.kjell.com/se/produkter/el-verktyg/arduino/moduler/temperatur-och-luftfuktighetssensor-for-arduino-p87086)
 - DS18B20 (https://www.kjell.com/se/produkter/el-verktyg/arduino/moduler/temperatursensor-med-kabel-for-arduino-p87081)
  
