@@ -1,0 +1,767 @@
+[
+    {
+        "id": "cc1883f1.bbfe1",
+        "type": "tab",
+        "label": "Victron",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "45c27854.a10ab8",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Battery voltage",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_battery_voltage"
+            },
+            {
+                "property": "device_class",
+                "value": "voltage"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "V"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "x": 640,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "edfe1c2a.92857",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Battery voltage",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.batteries.House.voltage",
+        "source": "",
+        "period": "10000",
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "6cafc389.bb37dc"
+            ]
+        ]
+    },
+    {
+        "id": "6cafc389.bb37dc",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "45c27854.a10ab8"
+            ]
+        ]
+    },
+    {
+        "id": "3762516d.303a9e",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Battery voltage",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_battery_current"
+            },
+            {
+                "property": "device_class",
+                "value": "current"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "A"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 640,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d6440b1b.3d2418",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Battery Current",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.batteries.House.current",
+        "source": "",
+        "period": "10000",
+        "x": 180,
+        "y": 280,
+        "wires": [
+            [
+                "32c4e5a8.92d9fa"
+            ]
+        ]
+    },
+    {
+        "id": "32c4e5a8.92d9fa",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "3762516d.303a9e"
+            ]
+        ]
+    },
+    {
+        "id": "726e472e.6b4968",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Battery Capacity remaining",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_battery_capacitytime"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "hours"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 680,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e2dae7d.902bc",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Battery capacity remaining",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.batteries.House.capacity.timeRemaining",
+        "source": "",
+        "period": "10000",
+        "x": 210,
+        "y": 340,
+        "wires": [
+            [
+                "38beb66a.c1f34a"
+            ]
+        ]
+    },
+    {
+        "id": "38beb66a.c1f34a",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload/3600 .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 340,
+        "wires": [
+            [
+                "726e472e.6b4968"
+            ]
+        ]
+    },
+    {
+        "id": "3dbe8cf7.1db0b4",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Battery capacity state",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_battery_capacitystate"
+            },
+            {
+                "property": "device_class",
+                "value": "battery"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "%"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 660,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89664319.438fd",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Battery Capacity state",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.batteries.House.capacity.stateOfCharge",
+        "source": "",
+        "period": "10000",
+        "x": 200,
+        "y": 420,
+        "wires": [
+            [
+                "130cb950.954d17"
+            ]
+        ]
+    },
+    {
+        "id": "130cb950.954d17",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload*100 .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 420,
+        "wires": [
+            [
+                "3dbe8cf7.1db0b4"
+            ]
+        ]
+    },
+    {
+        "id": "e8ff0ed4.1c329",
+        "type": "comment",
+        "z": "cc1883f1.bbfe1",
+        "name": "Victron SmartShunt",
+        "info": "",
+        "x": 410,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "bcc3638b.ddbc8",
+        "type": "comment",
+        "z": "cc1883f1.bbfe1",
+        "name": "Victron MPPT",
+        "info": "",
+        "x": 390,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "93b73d24.00c05",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar panelVoltage",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_solar_panelvoltage"
+            },
+            {
+                "property": "device_class",
+                "value": "voltage"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "V"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 650,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69a26e79.1a7c4",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar panelVoltage",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.solar.Main1.panelVoltage",
+        "source": "",
+        "period": "10000",
+        "x": 190,
+        "y": 580,
+        "wires": [
+            [
+                "e7cc5e9.c55a7a"
+            ]
+        ]
+    },
+    {
+        "id": "e7cc5e9.c55a7a",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 580,
+        "wires": [
+            [
+                "93b73d24.00c05"
+            ]
+        ]
+    },
+    {
+        "id": "e8ab7b1f.031b48",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar LoadCurrent",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_solar_current"
+            },
+            {
+                "property": "device_class",
+                "value": "current"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "A"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 650,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1ae943f9.62336c",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar Loadcurrent",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.solar.Main1.loadCurrent",
+        "source": "",
+        "period": "10000",
+        "x": 190,
+        "y": 660,
+        "wires": [
+            [
+                "923df4c1.6d2c08"
+            ]
+        ]
+    },
+    {
+        "id": "923df4c1.6d2c08",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 660,
+        "wires": [
+            [
+                "e8ab7b1f.031b48"
+            ]
+        ]
+    },
+    {
+        "id": "daabcae7.946978",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar chargingmode",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "binary_sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_solar_chargingmode"
+            },
+            {
+                "property": "device_class",
+                "value": "battery_charging"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 660,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ad691fa2.4833d",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar chargingmode",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.charger.House1.chargingMode",
+        "source": "",
+        "period": "10000",
+        "x": 190,
+        "y": 780,
+        "wires": [
+            [
+                "31fb6a8d.410c96"
+            ]
+        ]
+    },
+    {
+        "id": "31fb6a8d.410c96",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 780,
+        "wires": [
+            [
+                "daabcae7.946978"
+            ]
+        ]
+    },
+    {
+        "id": "1aef913a.60245f",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar panelPower",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_solar_panelPower"
+            },
+            {
+                "property": "device_class",
+                "value": "power"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "W"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 650,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4a62e30b.41903c",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar panelPower",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.solar.Main1.panelPower",
+        "source": "",
+        "period": "10000",
+        "x": 190,
+        "y": 840,
+        "wires": [
+            [
+                "9df36f9b.5e788"
+            ]
+        ]
+    },
+    {
+        "id": "9df36f9b.5e788",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 840,
+        "wires": [
+            [
+                "1aef913a.60245f"
+            ]
+        ]
+    },
+    {
+        "id": "5e2002e1.dc320c",
+        "type": "ha-entity",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar House1current",
+        "server": "f6402dd9.f35b9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 1,
+        "entityType": "sensor",
+        "config": [
+            {
+                "property": "name",
+                "value": "obc_solar_house1current"
+            },
+            {
+                "property": "device_class",
+                "value": "current"
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": "A"
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "outputOnStateChange": false,
+        "outputPayload": "",
+        "outputPayloadType": "str",
+        "x": 660,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a170610.b2b688",
+        "type": "signalk-subscribe",
+        "z": "cc1883f1.bbfe1",
+        "name": "Solar Current",
+        "mode": "sendAll",
+        "flatten": true,
+        "context": "vessels.self",
+        "path": "electrical.batteries.House1.current",
+        "source": "",
+        "period": "10000",
+        "x": 170,
+        "y": 720,
+        "wires": [
+            [
+                "5d7884f3.41ab7c"
+            ]
+        ]
+    },
+    {
+        "id": "5d7884f3.41ab7c",
+        "type": "function",
+        "z": "cc1883f1.bbfe1",
+        "name": "",
+        "func": "msg.payload = msg.payload .toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 720,
+        "wires": [
+            [
+                "5e2002e1.dc320c"
+            ]
+        ]
+    },
+    {
+        "id": "f6402dd9.f35b9",
+        "type": "server",
+        "name": "Home Assistant",
+        "version": 1,
+        "legacy": false,
+        "addon": false,
+        "rejectUnauthorizedCerts": false,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true
+    }
+]
